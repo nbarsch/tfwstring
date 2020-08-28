@@ -14,11 +14,11 @@ getnames <- function(namestring){
     namestring <- gsub("\\+","&",namestring)
   }
   andin <-  grepl(" and ",tolower(namestring))
-  if(isTRUE(plusin)){
+  if(isTRUE(andin)){
     namestring <- gsub(" and ","&",namestring)
   }
-  andin <-  grepl(" or ",tolower(namestring))
-  if(isTRUE(plusin)){
+  orin<-  grepl(" or ",tolower(namestring))
+  if(isTRUE(orin)){
     namestring <- gsub(" or ","&",namestring)
   }
   twonames <- grepl("&",namestring)
