@@ -157,6 +157,6 @@ getnames <- function(namestring){
 # namestring <- "N Barsch"
 # getnames(namestring=namestring)
 #
-namestring <- "N & Einstein Bar"
-getnames(namestring=namestring)
+#namestring <- "N & Einstein Bar"
+#getnames(namestring=namestring)
 
