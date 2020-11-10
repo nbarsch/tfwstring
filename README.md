@@ -44,8 +44,12 @@ StateName                                  DC
 ZipCode                                 20500
 
 ```
+```parseaddress("Colgate University 13 Oak Drive Hamilton, NY 13346", return="horizontal")```
 
-                     
+```
+                        Recipient AddressNumber StreetName StreetNamePostType PlaceName StateName ZipCode
+parsed_address Colgate University            13        Oak              Drive  Hamilton        NY   13346
+```                   
 
 
 ##Optional parameters:
