@@ -57,7 +57,7 @@ parsed_address Colgate University            13        Oak              Drive  H
 ```                   
 
 
-##Optional parameters:
+## Optional Parameters:
 
 ```return``` FORMAT TYPE for RETURNED RESULTS (1. "vertical" or "v" for vertical data.frame, 2. "horizontal" or "h" for horizontal data.frame, "c" or "char" for named character vector )
 
