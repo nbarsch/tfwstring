@@ -17,7 +17,7 @@ remotes::install_github("nbarsch/tfwstring")
 ## To parse addresses:
 ```tfwstring::parseaddress(address, check_python=TRUE, force_stateabb=FALSE, return="char")```
 
-**On Mac and Linux** the python module and even should automatically install if missing (because unix is superior clearly).
+**On Mac and Linux** python AND the python module ``usaddress`` should automatically install if missing (because unix is superior clearly).
 
 **On Windows** it is recommended to 
 1. Install python yourself from here: https://www.python.org/downloads/windows/ 
