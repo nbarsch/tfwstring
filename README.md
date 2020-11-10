@@ -11,7 +11,7 @@ remotes::install_github("nbarsch/tfwstring")
 ```
 
 ## Usage
-```tfwstring```'s most useful function to the public is the R binding to the ```usaddress``` python module to make address parsing easy and automatic. This function uses the R package ```reticulate``` to run usaddress python module directly and easily in R.
+```tfwstring```'s most useful function to the public is the R wrapper to the ```usaddress``` python module to make address parsing easy and automatic. This function uses the R package ```reticulate``` to run usaddress python module directly and easily in R.
 
 
 ## To parse addresses:
