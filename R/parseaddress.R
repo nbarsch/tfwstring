@@ -4,8 +4,9 @@
 #' @param address string of address to parse
 #' @param check_python TRUE or FALSE, TRUE=do check for python dependencies and install if missing, FALSE is faster if you have already installed python3 and module usaddress
 #' @param force_stateabb TRUE or FALSE, if TRUE state names are forced to abbreviation format for unified format
+#' @param return FORMAT TYPE for RETURNED RESULTS (1. "vertical" or "v" for vertical data.frame, 2. "horizontal" or "h" for horizontal data.frame, "c" or "char" for named character vector )
 #' @export
-parseaddress <- function(address, check_python=TRUE, force_stateabb=TRUE){
+parseaddress <- function(address, check_python=TRUE, force_stateabb=TRUE, return="char"){
   
   if(isTRUE(check_python)){
     system("sudo apt-get install python3-pip -y -qq > /dev/null")
@@ -30,7 +31,20 @@ def adusapy(x):
               ")
   
   #t <- "3777 S Albion St unit 2 Cherry Hills Village, CO 80113"
-  return(unlist(py$adusapy(address)))
+  adlist <- unlist(py$adusapy(address))
+  adtype <- adlist[length(adlist)]
+  adlist <- adlist[1:(length(adlist)-1)]
+  if(return=="vertical" | tolower(return)=="v"){
+    return(data.frame(parsed_address=adlist))
+    
+  }else{
+    if(return=="horizontal" | tolower(return)=="h"){
+      return(data.frame(t(data.frame(parsed_address=adlist))))
+      
+    }else{
+      return(adlist)
+    }
+  }
   
   
   
