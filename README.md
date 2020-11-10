@@ -17,12 +17,11 @@ remotes::install_github("nbarsch/tfwstring")
 ## To parse addresses:
 ```tfwstring::parseaddress(address, check_python=TRUE, force_stateabb=FALSE, return="char")```
 
-On mac and linux the python module should automatically install. 
+**On Mac and Linux** the python module and even should automatically install if missing (because unix is superior clearly).
 
-On windows you will need to install tools for visual studio: https://visualstudio.microsoft.com/downloads/ 
-
-On windows it is recommended to 
+**On Windows** it is recommended to 
 1. Install python yourself from here: https://www.python.org/downloads/windows/ 
+2. Install c++ and python tools for visual studio: https://visualstudio.microsoft.com/downloads/ 
 2. Use powershell to ```pip3 install usaddress```
 3. When running ```parseaddress()``` use ```check_python=FALSE``` to avoid issues running in the windows OS. 
 
