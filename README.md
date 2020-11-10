@@ -1,5 +1,5 @@
 # tfwstring
-tenfourWest string functions
+**tenfourWest.com** string functions
 
 ```tfwstring``` is tenfourWest.com's `R` package for string manipulation. 
 
