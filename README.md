@@ -15,7 +15,7 @@ remotes::install_github("nbarsch/tfwstring")
 
 
 ## To parse addresses:
-```tfwstring::parseaddress(address, check_python=TRUE, force_stateabb=TRUE, return="char")```
+```tfwstring::parseaddress(address, check_python=TRUE, force_stateabb=FALSE, return="char")```
 
 On mac and linux the python module should automatically install. 
 On windows you will need to install tools for visual studio: https://visualstudio.microsoft.com/downloads/ 
