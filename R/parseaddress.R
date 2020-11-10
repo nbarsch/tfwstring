@@ -12,8 +12,14 @@ parseaddress <- function(address, check_python=TRUE, force_stateabb=TRUE, return
     system("sudo apt-get install python3-pip -y -qq > /dev/null")
     system("sudo pip3 install usaddress -qq > /dev/null")
   }
-  Sys.setenv(RETICULATE_PYTHON = "/usr/bin/python3") 
-  suppressWarnings(if(!require("reticulate")){install.packages("reticulate")})
+  suppressWarnings(if(!require("reticulate")){
+    sinfo <- Sys.info()
+    opsys <- sinfo["sysname"]
+    if(opsys=="Linux"){
+      Sys.setenv(RETICULATE_PYTHON = "/usr/bin/python3") 
+    }
+    install.packages("reticulate")
+    })
   library(reticulate)
   
   if(isTRUE(force_stateabb)){
@@ -31,7 +37,6 @@ def adusapy(x):
   return usaddress.tag(x)
               ")
   
-  #address <- "3777 S Albion St unit 2 Cherry Hills Village, CO 80113"
   adlist <- unlist(py$adusapy(address))
   adtype <- adlist[length(adlist)]
   adlist <- adlist[1:(length(adlist)-1)]
