@@ -5,5 +5,6 @@
 
 #' @export
 ts <- function(){
+  require(lubridate)
   return(gsub("[[:alpha:]]","",gsub("[[:punct:]]","",milliseconds(as.numeric(Sys.time())))))
 }
