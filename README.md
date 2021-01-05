@@ -65,7 +65,7 @@ parsed_address Colgate University            13        Oak              Drive  H
 
 ```force_stateabb``` TRUE or FALSE, if TRUE state names are forced to abbreviation format for unified format
 
-## To Apply To An Adress data.frame column or address vector:
+## To Apply to: ADDRESS DATA.FRAME COLUMN -or- VECTOR OF ADDRESSES:
 
 ```
 sampledf <- data.frame(adnum=c(1:4),addressvec=c("White House 1600 Pennsylvania Avenue NW Washington DC", "Colgate 13 Oak Dr. Hamilton, NY 13346","200 E Colfax Ave Denver, CO","355 E Kalamazoo Ave, Kalamazoo, MI 49007"),stringsAsFactors = F)
