@@ -26,11 +26,11 @@ remotes::install_github("nbarsch/tfwstring")
 3. When running ```parseaddress()``` use ```check_python=FALSE``` to avoid issues running in the windows OS. 
 
 ## Simplest use
-```parseaddress("Biden's White House 1700 Pennsylvania Ave NW, Washington DC 20500")```
+```parseaddress("Biden's White House 1600 Pennsylvania Ave NW, Washington DC 20500")```
 
 ```
                 Recipient             AddressNumber                StreetName        StreetNamePostType StreetNamePostDirectional                 PlaceName 
-    "Biden's White House"                    "1700"            "Pennsylvania"                     "Ave"                      "NW"              "Washington" 
+    "Biden's White House"                    "1600"            "Pennsylvania"                     "Ave"                      "NW"              "Washington" 
                 StateName                   ZipCode 
                      "DC"                   "20500" 
 ```
@@ -40,7 +40,7 @@ remotes::install_github("nbarsch/tfwstring")
 
                                parsed_address
 Recipient                 Biden's White House
-AddressNumber                            1700
+AddressNumber                            1600
 StreetName                       Pennsylvania
 StreetNamePostType                        Ave
 StreetNamePostDirectional                  NW
@@ -64,4 +64,39 @@ parsed_address Colgate University            13        Oak              Drive  H
 ```check_python``` TRUE or FALSE, DO NOT INSTALL MINICONDA IF PROMPTED! TRUE=check for python dependencies and install if missing, FALSE= skip check (faster if you have already have the python dependencies installed)
 
 ```force_stateabb``` TRUE or FALSE, if TRUE state names are forced to abbreviation format for unified format
+
+## To Apply To An Adress data.frame column or address vector:
+
+```
+sampledf <- data.frame(adnum=c(1:4),addressvec=c("White House 1600 Pennsylvania Avenue NW Washington DC", "Colgate 13 Oak Dr. Hamilton, NY 13346","200 E Colfax Ave Denver, CO","355 E Kalamazoo Ave, Kalamazoo, MI 49007"),stringsAsFactors = F)
+
+#to get a full data.frame with parsed results
+advecdf <- parseaddressvec(sampledf$addressvec)
+print(advecdf)
+
+     Recipient AddressNumber   StreetName StreetNamePostType StreetNamePostDirectional  PlaceName StateName ZipCode
+1: White House          1600 Pennsylvania             Avenue                        NW Washington        DC    <NA>
+2:     Colgate            13          Oak                Dr.                      <NA>   Hamilton        NY   13346
+3:        <NA>           200       Colfax                Ave                      <NA>     Denver        CO    <NA>
+4:        <NA>           355    Kalamazoo                Ave                      <NA>  Kalamazoo        MI   49007
+   StreetNamePreDirectional
+1:                     <NA>
+2:                     <NA>
+3:                        E
+4:                        E
+
+
+#to isolate one address characteristic, use return="characteristic", i.e. return="ZipCode" or return="StreetName"
+> zipcodes <- parseaddressvec(sampledf$addressvec,return="ZipCode")
+> print(zipcodes)
+[1] NA      "13346" NA      "49007"
+> streetnames <- parseaddressvec(sampledf$addressvec,return="StreetName")
+> print(streetnames)
+[1] "Pennsylvania" "Oak"          "Colfax"       "Kalamazoo"   
+
+```
+
+
+
+
 
