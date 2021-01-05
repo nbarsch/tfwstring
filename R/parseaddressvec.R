@@ -12,10 +12,11 @@ parseaddressvec <- function(addressvec, return="all"){
   dflist <- lapply(c(1:length(addressvec)),FUN=function(x){data.frame(parseaddress(addressvec[x], return="horizontal"),stringsAsFactors = F)})
   dfres <- rbindlist(dflist, fill=T)
   dfres %>% mutate_all(as.character)->dfres
+  dfres <- data.frame(dfres,stringsAsFactors = F)
   if(return=="all"){
     return(rbindlist(dflist, fill=T))
   }else{
-    dfres$tecreturn <- dfres[,get(return)]
+    dfres$tecreturn <- dfres[,paste0(return)]
     return(dfres$tecreturn)
   }
   
