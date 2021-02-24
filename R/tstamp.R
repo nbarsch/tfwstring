@@ -4,6 +4,6 @@
 #'
 
 #' @export
-ts <- function(){
+tstamp <- function(){
   return(as.numeric(as.POSIXct(Sys.time())))
 }
