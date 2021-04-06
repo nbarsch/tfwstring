@@ -20,10 +20,10 @@ extxt <- function(string,ps,nchar=100,firstonly=F){
         }
       })
     }else{
-      if(isTRUE((startchar[x]+nchar)<nchar(ps))){
-        return(substr(ps,startchar[x],startchar[x]+nchar))
+      if(isTRUE((startchar[1]+nchar)<nchar(ps))){
+        return(substr(ps,startchar[1],startchar[1]+nchar))
       }else{
-        return(substr(ps,startchar[x],nchar(ps)))
+        return(substr(ps,startchar[1],nchar(ps)))
       }
     }
   }else{
