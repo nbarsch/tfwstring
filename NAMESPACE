@@ -2,6 +2,8 @@
 
 export(ac)
 export(allchar)
+export(cleannames)
+export(cnames)
 export(firstnumpos)
 export(getnames)
 export(matchwords)
