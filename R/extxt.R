@@ -7,9 +7,24 @@
 #' @export
 extxt <- function(string,nchar=100,ps,firstonly=F){
   startchar <- str_locate_all(ps,string)[[1]]
-  if(!isTRUE(firstonly)){
-    return(sapply(c(1:nrow(startchar)),FUN=function(x){substr(ps,startchar[x],startchar[x]+nchar)}))
+  if(length(startchar)>0){
+    
+    if(!isTRUE(firstonly)){
+      return(sapply(c(1:nrow(startchar)),FUN=function(x){
+        if(isTRUE((startchar[x]+nchar)<nchar(startchar[x]))){
+          return(substr(ps,startchar[x],startchar[x]+nchar))
+        }else{
+          return(substr(ps,startchar[x],nchar(startchar[x])))
+        }
+      }))
+    }else{
+      if(isTRUE((startchar[x]+nchar)<nchar(startchar[x]))){
+        return(substr(ps,startchar[x],startchar[x]+nchar))
+      }else{
+        return(substr(ps,startchar[x],nchar(startchar[x])))
+      }
+    }
   }else{
-    return(substr(ps,startchar[1],startchar[1]+nchar))
+    return("NOT_FOUND")
   }
 }
