@@ -7,7 +7,7 @@
 #' @param upper logical return team in upper case
 #' @param print logical print team name in addition to return
 #' @export
-getTeam2 <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
+getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
   
   if(!file.exists("temp_allproteams.csv")){
     download.file("https://docs.google.com/spreadsheets/d/1yKbZ5a9nbCx6wx7mAdTu9WJWEuHhTB8noGCHtm_7Jws/gviz/tq?tqx=out:csv&sheet=proteams",destfile="temp_allproteams.csv")
