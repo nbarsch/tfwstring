@@ -67,8 +67,8 @@ getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
       
     }
   }else{
-    print("NOT_FOUND")
-    return(paste0("NOT_FOUND"))
+    print(teamname)
+    return(paste0(teamname))
   }
 
   
