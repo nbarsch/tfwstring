@@ -18,8 +18,10 @@ getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
   tmatch1 <- which(toupper(tteams$teamonly2)==toupper(teamname))
   if(length(tmatch1)==0){
     tteams$tecmatchnum<- ncw(toupper(teamname),toupper(tteams$teamonly2))
-    tmatch1 <- which.max(tteams$tecmatchnum)
-  }
+    testmax1 <- max(as.numeric(tteams$tecmatchnum))
+    if(testmax1>0){
+      tmatch1 <- which.max(tteams$tecmatchnum)
+  }else{tmatch1 <- numeric(length=0L)}
   
   if(length(tmatch1)>0){
     
