@@ -38,6 +38,22 @@ getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
       return(outp)
     }
     
+    if(out=="ct"){
+      out <- "cityteam"
+    }
+    if(out=="cityteam"){
+      outt1 <- as.character(tteams$teamonly2[tmatch1[1]])
+      outt2 <- as.character(tteams$cityonly2[tmatch1[1]])
+      outp <- paste0(outt2," ",outt1)
+      if(isTRUE(upper)){
+        outp <- toupper(outp)
+      }
+      if(isTRUE(print)){
+        print(outp)
+      }
+      return(outp)
+    }
+    
     if(out=="all"){
   
       if(isTRUE(upper)){
