@@ -7,7 +7,6 @@
 #' @param upper logical return team in upper case
 #' @param print logical print team name in addition to return
 #' @export
-
 getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
   
   if(!file.exists("temp_allproteams.csv")){
@@ -21,6 +20,7 @@ getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
     testmax1 <- max(as.numeric(tteams$tecmatchnum))
     if(testmax1>0){
       tmatch1 <- which.max(tteams$tecmatchnum)
+    }else{tmatch1 <- numeric(length=0L)}
   }else{tmatch1 <- numeric(length=0L)}
   
   if(length(tmatch1)>0){
