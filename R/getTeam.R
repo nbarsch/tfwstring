@@ -6,14 +6,18 @@
 #' @param out string 'teamonly' or 'to' for only team name or 'all' for data.frame of all team data
 #' @param upper logical return team in upper case
 #' @param print logical print team name in addition to return
+#' @param league defaults to ALL, specify MLB for mlb, WNBA for wnba etc. 
 #' @export
-getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE){
+getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE, league="ALL"){
   
   if(!file.exists("temp_allproteams.csv")){
     download.file("https://docs.google.com/spreadsheets/d/1yKbZ5a9nbCx6wx7mAdTu9WJWEuHhTB8noGCHtm_7Jws/gviz/tq?tqx=out:csv&sheet=proteams",destfile="temp_allproteams.csv")
   }
   
   tteams <- read.csv("temp_allproteams.csv")
+  if(league!="ALL"){
+    tteams <- tteams[tteams$league==league,]
+  }
   tmatch1 <- which(toupper(tteams$teamonly2)==toupper(teamname))
   if(length(tmatch1)==0){
     tteams$tecmatchnum<- ncw(toupper(teamname),toupper(tteams$teamonly2))
