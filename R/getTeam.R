@@ -73,7 +73,9 @@ getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE, league="AL
       
     }
   }else{
-    print(teamname)
+    if(isTRUE(print)){
+      print(teamname)
+    }
     return(paste0(teamname))
   }
 
