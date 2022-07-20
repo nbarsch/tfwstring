@@ -93,6 +93,7 @@ convitime <- function(time){
   ttime <- gsub(" AM ","AM ",ttime)
   
   timeofday <- "NF"
+  hour <- "NF"
   atime <- unlist(strsplit(trimws(rm_white(ttime))," "))
   atime <- paste0(atime," ")
   atime <- toupper(atime)
@@ -102,6 +103,15 @@ convitime <- function(time){
   }
   if(length(timeloc)>0){
     timeofday <- trimws(rm_white(atime[timeloc]))
+    if(grepl(":",timeofday)){
+      hour <- unlist(strsplit(timeofday,":"))[1]
+      if(nchar(hour)==1){hour <- paste0("0",hour)}
+      
+    }else{
+      hour <- rpt(timeofday)
+      if(nchar(hour)==1){hour <- paste0("0",hour)}
+      
+    }
     atime <- atime[-timeloc]
   }
   
@@ -169,6 +179,6 @@ convitime <- function(time){
     
   #data.frame(time=timeofday, day=daynum, month=month, year=year, stringsAsFactors = F)
   
-  return(data.frame(time=timeofday, day=daynum, month=month, year=year, stringsAsFactors = F))
+  return(data.frame(time=timeofday, hour=hour, day=daynum, month=month, year=year, stringsAsFactors = F))
 
 }
