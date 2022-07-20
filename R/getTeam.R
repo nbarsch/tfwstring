@@ -7,14 +7,18 @@
 #' @param upper logical return team in upper case
 #' @param print logical print team name in addition to return
 #' @param league defaults to ALL, specify MLB for mlb, WNBA for wnba etc. 
+#' @param defaultinc filter to default leagues (filters out ufc)
 #' @export
-getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE, league="ALL"){
+getTeam <- function(teamname, out="teamonly", upper=TRUE, print=TRUE, league="ALL", defaultinc=TRUE){
   
   if(!file.exists("temp_allproteams.csv")){
     download.file("https://docs.google.com/spreadsheets/d/1yKbZ5a9nbCx6wx7mAdTu9WJWEuHhTB8noGCHtm_7Jws/gviz/tq?tqx=out:csv&sheet=proteams",destfile="temp_allproteams.csv")
   }
   
   tteams <- read.csv("temp_allproteams.csv")
+  if(isTRUE(defaultinc)){
+    tteams <- tteams[tteams$defaultinclude=="YES",]
+  }
   if(league!="ALL"){
     tteams <- tteams[tteams$league==league,]
   }
