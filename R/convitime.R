@@ -25,9 +25,10 @@ convitime <- function(time){
   
   doneday <- FALSE
   ttime <- paste0(" ",toupper(time)," ")
+  ttimey <- gsub("[[:punct:]]"," ",ttime)
   noyear <- TRUE
-  if(grepl(" 2022 ",ttime)){year <- "2022";noyear <- FALSE}
-  if(grepl(" 2023 ",ttime)){year <- "2023";noyear <- FALSE}
+  if(grepl(" 2022 ",ttimey)){year <- "2022";noyear <- FALSE}
+  if(grepl(" 2023 ",ttimey)){year <- "2023";noyear <- FALSE}
   
   if(grepl("TODAY",ttime)){
     year <- "2022"
