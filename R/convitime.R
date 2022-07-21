@@ -119,7 +119,7 @@ convitime <- function(time){
     
     if(isTRUE(noyear)){
       year <- "NF"
-      a2time <- paste(a2time,collapse=" ")
+      a2time <- paste(atime,collapse=" ")
       a2time <- paste0(" ",trimws(rm_white(gsub("[[:punct:]]"," ",atime)))," ")
       #a2time <- trimws(rpt(atime))
       if(grepl(" 2022 ",a2time)){
