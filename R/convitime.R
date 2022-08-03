@@ -5,7 +5,7 @@
 #' @export
 convitime <- function(time){
   
-  
+  time <- toupper(time)
   dayvec<-c(
     today(),
     today()+1,
@@ -53,6 +53,13 @@ convitime <- function(time){
   ttime <- gsub(" SATURDAY "," SAT ",ttime)
   ttime <- gsub(" SUNDAY "," MON ",ttime)
   
+  if(grepl(weekdaydf$weekdayabr[2],ttime)){
+    year <- "2022"
+    month <- month(weekdaydf$day[2])
+    if(nchar(month)==1){month <- paste0("0",month)}
+    daynum <- day(weekdaydf$day[2])
+    doneday <- TRUE
+  }
   if(grepl(weekdaydf$weekdayabr[3],ttime)){
     year <- "2022"
     month <- month(weekdaydf$day[3])
@@ -130,7 +137,7 @@ convitime <- function(time){
         year <- "2023"
         a2time <- gsub(" 2023 "," ",a2time)
       }
-    }
+    }else{a2time <- atime}
     
     a2time <- paste0(" ",a2time," ")
     a2time <- paste(a2time,collapse=" ")
@@ -167,14 +174,20 @@ convitime <- function(time){
     spa2nums <- unlist(strsplit(a2nums," "))
     spa2nums <- spa2nums[nchar(spa2nums)<3]
     spa2nums <- spa2nums[spa2nums!=""]
-    if(gotmonth==FALSE){
-      month <- spa2nums[1]
-      if(nchar(month)==1){month <- paste0("0",month)}
-      gotmonth <- TRUE
+    if(length(spa2nums)>0){
+      if(gotmonth==FALSE){
+        month <- spa2nums[1]
+        if(nchar(month)==1){month <- paste0("0",month)}
+        gotmonth <- TRUE
+      }
+      daynum <- "NF"
+      daynum <- spa2nums[length(spa2nums)]
+      if(nchar(daynum)==1){daynum <- paste0("0",daynum)}
+    }else{
+      daynum <- "NF"
+      month <- "NF"
     }
-    daynum <- "NF"
-    daynum <- spa2nums[length(spa2nums)]
-    if(nchar(daynum)==1){daynum <- paste0("0",daynum)}
+
   }
     
   #data.frame(time=timeofday, day=daynum, month=month, year=year, stringsAsFactors = F)
