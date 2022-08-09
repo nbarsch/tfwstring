@@ -277,6 +277,9 @@ convitime <- function(time){
 
     
   #data.frame(time=timeofday, day=daynum, month=month, year=year, stringsAsFactors = F)
+  if(nchar(daynum)==1){
+    daynum <- paste0("0",daynum)
+  }
   
   return(data.frame(time=timeofday, hour=hour, day=daynum, month=month, year=year, stringsAsFactors = F))
 
