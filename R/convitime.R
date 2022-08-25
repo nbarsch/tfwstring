@@ -6,6 +6,10 @@
 convitime <- function(time){
   
   time <- toupper(time)
+  if(nrow(data.frame(str_locate_all(word(time,1,1),"\\/")))==2){
+    time <- gsub("\\/","-",time)
+    ftime <- mdy_hm(time)
+  }
   
   char1 <- str_sub(time,-1,-1)
 
