@@ -294,12 +294,14 @@ convitime2 <- function(time, clock24=TRUE){
     if(nchar(daynum)==1){
       daynum <- paste0("0",daynum)
     }
+    
+    if(isTRUE(clock24)){
+      hour <- hour(ymd_hm(paste0(Sys.Date()," ",timeofday)))
+    }
   }
   
   #if(hour=="01")
-  if(isTRUE(clock24)){
-    hour <- hour(ymd_hm(paste0(Sys.Date()," ",timeofday)))
-  }
+ 
   if(year=="NF"){year <- year(Sys.Date())}
   
   return(data.frame(time=timeofday, hour=hour, day=daynum, month=month, year=year, stringsAsFactors = F))
