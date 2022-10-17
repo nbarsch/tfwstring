@@ -114,8 +114,8 @@ convitime2 <- function(time, clock24=TRUE){
         today()+7
       )
       weekdaydf <- data.frame(day=dayvec,stringsAsFactors = F)
-      weekdaydf$weekdayabr <- toupper(wday(weekdaydf$day,label=T))
-      weekdaydf$weekdayfull <- toupper(wday(weekdaydf$day,label=T,abbr=F))
+      weekdaydf$weekdayabr <- toupper(lubridate::wday(weekdaydf$day,label=T))
+      weekdaydf$weekdayfull <- toupper(lubridate::wday(weekdaydf$day,label=T,abbr=F))
       
       
       
