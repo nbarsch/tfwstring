@@ -4,11 +4,11 @@
 \alias{convitime2}
 \title{convitime2}
 \usage{
-convitime(time)
+convitime2(time, clock24 = TRUE)
 }
 \arguments{
 \item{time}{string of time}
 }
 \description{
-unify time format
+Convert time from everything
 }

@@ -4,13 +4,11 @@
 \alias{getNCAATeam}
 \title{getNCAATeam()}
 \usage{
-getNCAATeam(
-  teamname
-)
+getNCAATeam(teamname)
 }
 \arguments{
 \item{teamname}{string name of team in any format}
 }
 \description{
-Get unified team name and data from any format team name 
+Get unified team name and data from any format team name
 }

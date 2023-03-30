@@ -10,5 +10,5 @@ nwords(str)
 \item{str}{string or string vector 1}
 }
 \description{
-Count number of words 
+Count number of words in string
 }

@@ -5,10 +5,12 @@
 \title{getTeam()}
 \usage{
 getTeam(
-  teamname, 
-  out="teamonly", 
-  upper=TRUE, 
-  print=TRUE
+  teamname,
+  out = "teamonly",
+  upper = TRUE,
+  print = TRUE,
+  league = "ALL",
+  defaultinc = TRUE
 )
 }
 \arguments{
@@ -18,8 +20,12 @@ getTeam(
 
 \item{upper}{logical return team in upper case}
 
-\item{print}{logical print team name in addition to returnK}
+\item{print}{logical print team name in addition to return}
+
+\item{league}{defaults to ALL, specify MLB for mlb, WNBA for wnba etc.}
+
+\item{defaultinc}{filter to default leagues (filters out ufc)}
 }
 \description{
-Get unified team name and data from any format team name 
+Get unified team name and data from any format team name
 }

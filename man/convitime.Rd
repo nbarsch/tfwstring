@@ -10,5 +10,5 @@ convitime(time)
 \item{time}{string of time}
 }
 \description{
-unify time format
+Convert time from everything
 }
