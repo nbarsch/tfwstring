@@ -5,6 +5,7 @@
 #' @export
 downsame <- function(xpath){
   #scroll to bottom of page
+  remDr <- get("remDr")
   tl1 <- length(gh(xpath=xpath))
   webElem <- remDr$findElement("css", "body")
   webElem$sendKeysToElement(list(key = "end"))
