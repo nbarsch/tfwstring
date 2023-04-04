@@ -3,7 +3,7 @@
 #' web element test
 #' @param xpath xpath of webelem
 #' @export
-wetest2 <- function(xpath){
+wetest <- function(xpath){
   remDr <- get("remDr",envir=globalenv())
   webElemtest <-NULL
   wer <- 1
