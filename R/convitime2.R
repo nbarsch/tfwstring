@@ -124,18 +124,18 @@ convitime2 <- function(time, clock24=TRUE){
       ttime <- paste0(" ",toupper(time)," ")
       ttimey <- gsub("[[:punct:]]"," ",ttime)
       noyear <- TRUE
-      if(grepl(" 2022 ",ttimey)){year <- "2022";noyear <- FALSE}
       if(grepl(" 2023 ",ttimey)){year <- "2023";noyear <- FALSE}
+      if(grepl(" 2024 ",ttimey)){year <- "2024";noyear <- FALSE}
       
       if(grepl("TODAY",ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[1])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[1])
         doneday <- TRUE
       }
       if(grepl("TOMORROW",ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[2])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[2])
@@ -151,42 +151,42 @@ convitime2 <- function(time, clock24=TRUE){
       ttime <- gsub(" SUNDAY "," MON ",ttime)
       
       if(grepl(weekdaydf$weekdayabr[2],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[2])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[2])
         doneday <- TRUE
       }
       if(grepl(weekdaydf$weekdayabr[3],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[3])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[3])
         doneday <- TRUE
       }
       if(grepl(weekdaydf$weekdayabr[4],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[4])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[4])
         doneday <- TRUE
       }
       if(grepl(weekdaydf$weekdayabr[5],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[5])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[5])
         doneday <- TRUE
       }
       if(grepl(weekdaydf$weekdayabr[6],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[6])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[6])
         doneday <- TRUE
       }
       if(grepl(weekdaydf$weekdayabr[7],ttime)){
-        year <- "2022"
+        year <- "2023"
         month <- month(weekdaydf$day[7])
         if(nchar(month)==1){month <- paste0("0",month)}
         daynum <- day(weekdaydf$day[7])
@@ -226,13 +226,13 @@ convitime2 <- function(time, clock24=TRUE){
           a2time <- paste(atime,collapse=" ")
           a2time <- paste0(" ",trimws(rm_white(gsub("[[:punct:]]"," ",atime)))," ")
           #a2time <- trimws(rpt(atime))
-          if(grepl(" 2022 ",a2time)){
-            year <- "2022"
-            a2time <- gsub(" 2022 "," ",a2time)
-          }
           if(grepl(" 2023 ",a2time)){
             year <- "2023"
             a2time <- gsub(" 2023 "," ",a2time)
+          }
+          if(grepl(" 2024 ",a2time)){
+            year <- "2024"
+            a2time <- gsub(" 2024 "," ",a2time)
           }
         }else{a2time <- atime}
         
